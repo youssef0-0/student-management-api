@@ -155,10 +155,12 @@ Example error response (duplicate):
 
 ## 🗺️ Roadmap
 
-- [ ] Add authentication/authorization (JWT)
-- [ ] Add unit and integration tests
-- [ ] Dockerize the application
-- [ ] Add CI/CD pipeline
+- [ ] Add API documentation (Swagger/OpenAPI)
+- [ ] Add unit and integration tests (JUnit 5 & Mockito)
+- [ ] Implement structured logging (SLF4J & Logback)
+- [ ] Add authentication/authorization (Spring Security & JWT)
+- [ ] Dockerize the application and database
+- [ ] Add CI/CD pipeline (GitHub Actions)
 
 ## 📄 License
 
