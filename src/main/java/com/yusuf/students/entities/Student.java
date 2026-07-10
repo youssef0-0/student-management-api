@@ -1,29 +1,34 @@
-package com.yusuf.students;
+package com.yusuf.students.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.*;
 
 import java.util.Objects;
 
 @Entity
+@Table(name = "students")
 public class Student {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Integer id;
+    @Column(nullable = false, length = 65)
     private String name;
+    @Column(nullable = false)
     private Integer grade;
+    @Column(nullable = false)
     private Float gpa;
+    @Column(nullable = false, unique = true, length = 20)
+    private String phoneNumber;
 
     public Student() {
     }
 
-    public Student(Integer id, String name, Integer grade, Float gpa) {
+    public Student(Integer id, String name, Integer grade, Float gpa, String phoneNumber) {
         this.id = id;
         this.name = name;
         this.grade = grade;
         this.gpa = gpa;
+        this.phoneNumber = phoneNumber;
     }
 
     public Integer getId() {
@@ -56,6 +61,13 @@ public class Student {
 
     public void setGpa(Float gpa) {
         this.gpa = gpa;
+    }
+
+    public String getPhoneNumber() {return phoneNumber;}
+
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber != null ? phoneNumber.trim().replaceAll("\\s+", "") : null;
     }
 
     @Override
